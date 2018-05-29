@@ -1,5 +1,5 @@
 package com.example.demo;
-import com.example.demo.web.rest.Controller.CalculController;
+import com.example.demo.web.rest.controller.CalculController;
 import com.example.demo.web.rest.service.CalculationService;
 import org.junit.Before;
 import org.junit.Test;
@@ -43,7 +43,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
             mockMvc.perform(post("/api/getNumberOfPunctuation").content(
                     text))
                     .andExpect(status().isOk())
-                    .andExpect(jsonPath("$.value", is(3)));
+                    .andExpect(jsonPath("$", is(3)));
 
             verify(calculationServiceMock, times(1)).CalculPonctuation(any());
             verifyNoMoreInteractions(calculationServiceMock);
